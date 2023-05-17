@@ -19,14 +19,15 @@ export default function SimpleBottomNavigation() {
   }, [value, navigate]);
 
   return (
-    <Box sx={{ width: '100%', position: 'fixed', zIndex: 100, bottom: 0, backgroundColor: '#2d313a' }}>
+    <Box sx={{ width: '100%', position: 'fixed', zIndex: 100, bottom: 0, backgroundColor: '#73A9AD' }}>
       <BottomNavigation
         showLabels
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
-      >
+        style={{ backgroundColor: 'inherit' }}
+      >      
         <BottomNavigationAction label="Trending" icon={<WhatshotIcon/>} />
         <BottomNavigationAction label="Movies" icon={<MovieIcon />} />
         <BottomNavigationAction label="TV Series" icon={<TvIcon />} />
