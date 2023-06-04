@@ -72,6 +72,7 @@ const Search = () => {
                 {
                     content && content.map((c) => (
                         <SingleContent 
+                        id = {c.id}
                         key = {c.id} 
                         poster = {c.poster_path} 
                         title = {c.title || c.name} 

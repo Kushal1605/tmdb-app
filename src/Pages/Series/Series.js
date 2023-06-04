@@ -13,7 +13,7 @@ const Series = () => {
         const [selectedGenres, setSelectedGenres] = useState([]);
         const [genres, setGenres] = useState([]);
         const genreforURL = useGenres(selectedGenres)
-        const fetchMovies = async() => {
+        const fetchSeries = async() => {
             const { data } = await axios.get(
                 `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genreforURL}`
             );
@@ -23,7 +23,9 @@ const Series = () => {
             setNumOfPages(500);              
         };
         useEffect(() => {
-            fetchMovies();
+            window.scroll(0, 0)
+            fetchSeries();
+            // eslint-disable-next-line
         }, [page, genreforURL]);
     return (
         <div>
@@ -40,6 +42,7 @@ const Series = () => {
                 {
                     content && content.map((c) => (
                         <SingleContent 
+                        id = {c.id}
                         key = {c.id} 
                         poster = {c.poster_path} 
                         title = {c.title || c.name} 

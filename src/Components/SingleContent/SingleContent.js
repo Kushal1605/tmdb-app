@@ -14,7 +14,7 @@ const SingleContent = ({
 }) => {
   return (
     <ContentModal media_type = {media_type} id = {id}>
-    <Badge badgeContent = {vote_average}     //toFixed() round off value to 1 digit  after decimal
+    <Badge badgeContent = {vote_average.toFixed(1)}     //toFixed() round off value to 1 digit  after decimal
       color={vote_average > 6 ? 'primary' : 'secondary'}
     />
       <img className='poster' src = { poster ? `${img_300}/${poster}` : unavailable}alt={title} />

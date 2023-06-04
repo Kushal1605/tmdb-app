@@ -22,16 +22,26 @@ const Movies = () => {
             setNumOfPages(500);              
         };
         useEffect(() => {
+            window.scroll(0, 0)
             fetchMovies();
-        }, [page, genreforURL]);
+            // eslint-disable-next-line
+        }, [genreforURL, page]);
     return (
         <div>
             <span className = 'pageTitle'>Movies</span>
-             
+            <Genres
+            type="movie"
+            selectedGenres={selectedGenres}
+            setSelectedGenres={setSelectedGenres}
+            genres={genres}
+            setGenres={setGenres}
+            setPage={setPage}
+            />
             <div className="trending"> 
                 {
                     content && content.map((c) => (
                         <SingleContent 
+                        id = {c.id}
                         key = {c.id} 
                         poster = {c.poster_path} 
                         title = {c.title || c.name} 
@@ -49,4 +59,4 @@ const Movies = () => {
         </div>
     )
 }
-export default Movies
+export default Movies;
